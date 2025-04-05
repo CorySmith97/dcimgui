@@ -23,12 +23,12 @@ pub fn build(b: *std.Build) !void {
     lib_cimgui.linkLibCpp();
     lib_cimgui.addCSourceFiles(.{
         .files = &.{
-            "src_docking/cimgui.cpp",
-            "src_docking/imgui_demo.cpp",
-            "src_docking/imgui_draw.cpp",
-            "src_docking/imgui_tables.cpp",
-            "src_docking/imgui_widgets.cpp",
-            "src_docking/imgui.cpp",
+            "src-docking/cimgui.cpp",
+            "src-docking/imgui_demo.cpp",
+            "src-docking/imgui_draw.cpp",
+            "src-docking/imgui_tables.cpp",
+            "src-docking/imgui_widgets.cpp",
+            "src-docking/imgui.cpp",
         },
         .flags = cflags.slice(),
     });
@@ -41,7 +41,7 @@ pub fn build(b: *std.Build) !void {
     // NOTE: running this step with the host target is intended to avoid
     // any Emscripten header search path shenanigans
     const translateC = b.addTranslateC(.{
-        .root_source_file = b.path("src_docking/cimgui.h"),
+        .root_source_file = b.path("src-docking/cimgui.h"),
         .target = b.graph.host,
         .optimize = optimize,
     });
